@@ -1,0 +1,12 @@
+{
+  "server_port": 3000,
+
+  "db": {
+    "db_name": "questions",
+    "username": "postgres",
+    "password": "postgres",
+    "host": "localhost",
+    "port": "5432",
+    "dialect": "postgres"
+  }
+}

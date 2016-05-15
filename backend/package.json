@@ -1,0 +1,12 @@
+{
+  "name": "crutches",
+  "version": "0.0.1",
+  "dependencies": {
+    "body-parser": "~1.13.2",
+    "ejs": "~2.3.3",
+    "express": "latest",
+    "nconf": "latest",
+    "serve-favicon": "~2.3.0",
+    "sequelize": "^3.23.0"
+  }
+}
