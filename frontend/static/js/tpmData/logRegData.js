@@ -39,7 +39,7 @@ export const regForm = {
             label: 'Email address',
             form: {
                 id: 'email',
-                type: 'emil',
+                type: 'email',
                 placeholder: 'email@something.com'
             }
         },
