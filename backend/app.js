@@ -5,7 +5,6 @@ var http = require('http');
 var path = require('path');
 var config = require('lib/config');
 var fs = require('fs');
-// var dao = require('db/dao');
 
 var app = express();
 
@@ -19,6 +18,14 @@ app.use(express.static(path.join(__dirname, '../frontend/static')));
 app.use(bodyParser.json());
 
 app.get('/', function (req, res) {
-    // console.log(res.body);
     fs.createReadStream('index.html').pipe(res);
+});
+
+
+app.post('/registration', function (req, res) {
+    console.log(req.body);
+    res.write(JSON.stringify({
+        success: 'yes'
+    }));
+    res.status(200).end();
 });
