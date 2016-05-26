@@ -6,8 +6,25 @@ export const Johny = {
     avatar: "http://www.metallica.marjantrajkovski.com/img/clanovi/james-hetfield.jpg",
     firstName: "John",
     lastName: "Smith",
-    group: "PM3",
-    tasks:[
+    userID: 4,
+    groupName: "PM3",
+    groupID: 2,
+    subjects: [
+        {
+            subjectName: "Programing",
+            subjectID: 3
+        },
+        {
+            subjectName: "Object-oriented programming",
+            subjectID: 1
+        },
+        {
+            subjectName: "Numerical analysis",
+            subjectID: 2
+        }
+    ]
+};
+    /*tasks = [
         {
             subject: "Programing",
             title: "Fibonacci sequence",
@@ -44,5 +61,4 @@ export const Johny = {
             deadline: new Date(2016, 5, 7),
             isDone: false
         }
-    ]
-};
+    ];*/

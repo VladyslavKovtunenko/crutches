@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import {Login} from './loginComponent'
 import $ from 'jquery'
-import {md5} from '../md5'
+import {md5} from '../../md5'
 
 
 export class Registration extends React.Component{
@@ -30,7 +30,7 @@ export class Registration extends React.Component{
         let userData = {
             email: this.email.value,
             password: md5(this.password.value),
-            name: this.name.value,
+            firstName: this.name.value,
             lastName: this.lastName.value,
             group: this.group.value
         };
