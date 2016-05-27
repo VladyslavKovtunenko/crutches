@@ -3,7 +3,7 @@
  */
 
 export const Johny = {
-    avatar: "https://d30y9cdsu7xlg0.cloudfront.net/png/81030-200.png",
+    avatar: "http://famousoutfits.com/wp-content/uploads/2014/12/jason-statham.png",
     firstName: "John",
     lastName: "Smith",
     userID: 4,

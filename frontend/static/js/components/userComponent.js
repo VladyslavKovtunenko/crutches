@@ -53,19 +53,19 @@ export class User extends React.Component{
     render(){
         return(
             <div>
-                <div class="col-md-4">
+                <div className="col-md-6">
                     <img src={this.props.info.avatar}/>
                 </div>
-                <div class="col-md-2">
-                    <h3>{this.state.name}</h3>
-                    <p>{this.props.info.groupName}</p>
+                <div className="col-md-6">
+                    <h2>{this.state.name}</h2>
+                    <p className="lead">{this.props.info.groupName}</p>
                 </div>
-                
-                <ul>
+                <div className="col-md-12">
+                <ul className="list-unstyled">
                     <h3>Subjects:</h3>
                     <SubjectList info = {this.subjectList} />
                 </ul>
-                    
+                    </div>
             </div>
         );
     }
