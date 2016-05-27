@@ -3,7 +3,7 @@
  */
 
 export const Johny = {
-    avatar: "http://www.metallica.marjantrajkovski.com/img/clanovi/james-hetfield.jpg",
+    avatar: "https://d30y9cdsu7xlg0.cloudfront.net/png/81030-200.png",
     firstName: "John",
     lastName: "Smith",
     userID: 4,

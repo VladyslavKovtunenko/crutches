@@ -52,35 +52,21 @@ export class User extends React.Component{
     
     render(){
         return(
-            <div><img src={this.props.info.avatar}/>
-                <dl>
-                    <dd>
-                        <h3>{this.state.name}</h3>
-                    </dd>
-                    <dd>
-                        <p>{this.props.info.groupName}</p>
-                    </dd>
-                    <dd>
-                        <ul>
-                            <h3>Subjects:</h3>
-                            <SubjectList info = {this.subjectList} />
-                        </ul>
-                    </dd>
-                </dl>
+            <div>
+                <div class="col-md-4">
+                    <img src={this.props.info.avatar}/>
+                </div>
+                <div class="col-md-2">
+                    <h3>{this.state.name}</h3>
+                    <p>{this.props.info.groupName}</p>
+                </div>
+                
+                <ul>
+                    <h3>Subjects:</h3>
+                    <SubjectList info = {this.subjectList} />
+                </ul>
+                    
             </div>
         );
     }
 }
-
-/*
-<ul>
-    <h4>Tasks:</h4>
-    <li onClick={this.showTodo}>
-        ToDo: {this.state.todo.length}
-        <div id="todoContainer"></div>
-    </li>
-    <li onClick={this.showDone}>
-        Done: {this.state.done.length}
-        <div id="doneContainer"></div>
-    </li>
-</ul>*/

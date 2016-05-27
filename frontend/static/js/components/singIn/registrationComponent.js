@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import {Login} from './loginComponent'
 import $ from 'jquery'
 import {md5} from '../../md5'
-
+import {User} from '../userComponent'
 
 export class Registration extends React.Component{
     constructor(props){
@@ -13,7 +13,7 @@ export class Registration extends React.Component{
         this.confPass = '';
         this.name = '';
         this.lastName = '';
-        this.group = '';
+        this.nameGroup = '';
         this.submit = this.submit.bind(this);
         this.redirectToLogin = this.redirectToLogin.bind(this);
     }
@@ -32,19 +32,19 @@ export class Registration extends React.Component{
             password: md5(this.password.value),
             firstName: this.name.value,
             lastName: this.lastName.value,
-            group: this.group.value
+            nameGroup: this.group.value
         };
         
         console.log(userData);
         
         $.ajax({
-            url: 'http://localhost:3000/registration',
+            url: 'http://localhost:3000/user',
             type: 'POST',
             contentType: 'application/json',
             dataType: 'json',
             data: JSON.stringify(userData),
             success: function (data) {
-                console.log(data);
+                ReactDOM.render(<User info={data}/>, document.getElementById('container'));
             }
         })
     }
@@ -59,82 +59,70 @@ export class Registration extends React.Component{
 
     render(){
         return (
-            <form>
-                <dl>
-                    <dd>
-                        <h3>
-                            Registration
-                        </h3> 
-                    </dd>
-                    <dd> 
-                        <label>
-                            Email address
-                        </label>
-                        <input 
-                            type="email" 
-                            placeholder="email@something.com" 
-                            ref={node => {this.email = node}}
-                        />
-                    </dd>
-                    <dd> 
-                        <label>
-                            Password
-                        </label> 
-                        <input  
-                            type="password"
-                            placeholder="safe password" 
-                            ref={node => {this.password = node}}
-                        /> 
-                    </dd>
-                    <dd>
-                        <label>
-                            Confirm password
-                        </label> 
-                        <input 
-                            type="password" 
-                            placeholder="safe password, again"
-                            ref={node => {this.confPass = node}}
-                        /> 
-                    </dd>
-                    <dd> 
-                        <label>
-                            Name
-                        </label>
-                        <input 
-                            type="text" 
-                            placeholder="John" 
-                            ref={node => {this.name = node}}
-                        /> 
-                    </dd>
-                    <dd> 
-                        <label>
-                            Last name
-                        </label> 
-                        <input 
-                            type="text" 
-                            placeholder="Smith" 
-                            ref={node => {this.lastName = node}}
-                        /> 
-                    </dd>
-                    <dd> 
-                        <label>
-                            Group
-                        </label> 
-                        <input 
-                            type="text" 
-                            placeholder="PM-3"
-                            ref={node => {this.group = node}}
-                        /> 
-                    </dd> 
-                    <dd>
-                        <button type="button" onClick={this.submit}>
-                            Submit
-                        </button>
-                        <p onClick={this.redirectToLogin}>
-                            Login
-                        </p>
-                    </dd> 
-                </dl> 
+            <form role="form" className="form-horizontal">
+                <div className="form-group">
+                    <label>Email address</label>
+                    <input type="email"
+                           placeholder="email@something.com"
+                           className="form-control"
+                           ref={node => {this.email = node}}
+                    />
+                </div>
+                <div className="form-group">
+                    <label>Password</label>
+                    <input type="password"
+                           placeholder="safe password"
+                           className="form-control"
+                           ref={node => {this.password = node}}
+                    />
+                </div>
+                <div className="form-group">
+                    <label>Confirm password</label>
+                    <input type="password"
+                           placeholder="safe password, again"
+                           className="form-control"
+                           ref={node => {this.confPass = node}}
+                    />
+                </div>
+                <div className="form-group">
+                    <label>Name</label>
+                    <input type="text"
+                           placeholder="John"
+                           className="form-control"
+                           ref={node => {this.name = node}}
+                    />
+                </div>
+                <div className="form-group">
+                    <label>Last name</label>
+                    <input type="text"
+                           placeholder="Smith"
+                           className="form-control"
+                           ref={node => {this.lastName = node}}
+                    />
+                </div>
+                <div className="form-group">
+                    <label>Group</label>
+                    <input type="text"
+                           placeholder="PM-3"
+                           className="form-control"
+                           ref={node => {this.nameGroup = node}}
+                    />
+                </div>
+                <div className="form-group">
+                    <button
+                        onClick={this.submit}
+                        className="btn btn-default"
+                    >
+                        Submit
+                    </button>
+                    <button
+                        type="button"
+                        onClick={this.redirectToLogin}
+                        className="btn btn-link"
+                    >
+                        Log in
+                    </button>
+                </div>
             </form>
         );
     }

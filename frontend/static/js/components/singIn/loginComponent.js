@@ -2,24 +2,35 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import {Registration} from './registrationComponent'
 import $ from "jquery";
+import {md5} from '../../md5'
+import {User} from '../userComponent'
 
 export class Login extends React.Component{
     constructor(props){
         super(props);
-        this.login = '';
+        this.pass = '';
         this.email = '';
         this.submit = this.submit.bind(this);
         this.redirectToRegistration = this.redirectToRegistration.bind(this);
     }
 
+    /*getInputDOMNode() {
+        return this.refs.input.getDOMNode();
+    }*/
+
     submit(e) {
         e.preventDefault();
+        /*let user = {
+            password: md5(this.pass.value),
+            email: this.email.value
+        };*/
         let user = {
-            login: this.login.value,
+            password: this.pass.value,
             email: this.email.value
         };
 
-        console.log(JSON.stringify(user));
+        console.log(user);
+        console.log(this.getInputDOMNode());
 
         $.ajax({
             url: 'http://localhost:3000/login',
@@ -28,7 +39,7 @@ export class Login extends React.Component{
             dataType: 'json',
             data: JSON.stringify(user),
             success: function (data) {
-                console.log(data);
+                ReactDOM.render(<User info={data}/>, document.getElementById('container'));
             }
         })
     }
@@ -39,42 +50,126 @@ export class Login extends React.Component{
     
     render(){
         return (
-            <form>
-                <dl>
-                    <dd>
-                        <h3>
-                            Login
-                        </h3>
-                    </dd>
-                    <dd>
-                        <label>
-                            Email
-                        </label>
-                        <input id="email"
-                               type="email"
-                               ref={node => {this.login = node}}
-                        />
-                    </dd>
-                    <dd>
-                        <label>
-                            Password
-                        </label>
-                        <input id="password"
-                               type="password"
-                               ref={node => {this.email = node}}
-                        />
-                    </dd>
-                    <dd>
-                        <button onClick={this.submit}>
-                            Submit
-                        </button>
-                        <p onClick={this.redirectToRegistration}>
-                            Registration
-                        </p>
-                    </dd>
-                </dl>
+            <form role="form" className="form-horizontal">
+                <div className="form-group">
+                    <label>Email</label>
+                    <input id="email"
+                           type="email"
+                           className="form-control"
+                           ref={node => {this.email = node}}
+                    />
+                </div>
+                <div className="form-group">
+                    <label>Password</label>
+                    <input id="password"
+                           type="password"
+                           className="form-control"
+                           ref={node => {this.pass = node}}
+                    />
+                </div>
+                <div className="form-group">
+                    <button
+                        onClick={this.submit}
+                        className="btn btn-default"
+                    >
+                        Log in
+                    </button>
+                    <button
+                        type="button"
+                        onClick={this.redirectToRegistration}
+                        className="btn btn-link"
+                    >
+                        Registration
+                    </button>
+                </div>
             </form>
         );
-
     }
 }
+
+/*
+<form role="form" class="form-horizontal">
+
+    <dl>
+        <div class="form-group">
+            <dd>
+                <h3>
+                    Login
+                </h3>
+            </dd>
+            <dd>
+                <label>
+                    Email
+                </label>
+                <input id="email"
+                       type="email"
+                       class="form-control"
+                       ref={node => {this.email = node}}
+                />
+            </dd>
+        </div>
+        <div class="form-group">
+            <dd>
+                <label>
+                    Password
+                </label>
+                <input id="password"
+                       type="password"
+                       class="form-control"
+                       ref={node => {this.pass = node}}
+                />
+            </dd>
+        </div>
+        <dd>
+            <button
+                onClick={this.submit}
+                class="btn btn-default"
+            >
+                Submit
+            </button>
+            <button
+                type="button"
+                onClick={this.redirectToRegistration}
+                class="btn btn-link"
+            >
+                Registration
+            </button>
+        </dd>
+    </dl>
+
+</form>*/
+
+
+/*<div>
+ <h3>
+ Login
+ </h3>
+ <form>
+ <FormGroup controlId="formControlsText">
+ <ControlLabel>Email</ControlLabel>
+ <FormControl id="email"
+ type="email"
+ ref={node => {this.email = node}}
+ />
+ </FormGroup>
+ <FormGroup controlId="formControlsText">
+ <ControlLabel>Password</ControlLabel>
+ <FormControl type="password"
+ ref={node => {this.pass = node}}
+ />
+ </FormGroup>
+ <ButtonToolbar>
+ <Button
+ onClick={this.submit}
+ >
+ Submit
+ </Button>
+ <Button
+ bsStyle="link"
+ onClick={this.redirectToRegistration}
+ >
+ Registration
+ </Button>
+ </ButtonToolbar>
+ </form>
+ </div>);*/
