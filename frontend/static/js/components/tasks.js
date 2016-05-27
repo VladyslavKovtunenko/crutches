@@ -12,13 +12,15 @@ export class Tasks extends React.Component{
             {this.props.tasks.map((task) => (
                 <li>
                     <dl>
-                        <dt>{task.title}</dt>
+                        <dd><h4>{task.title}</h4></dd>
                         <dd>{task.description}</dd>
                         <dd>Deadline: {task.deadline.toString()}</dd>
                     </dl>
-                    <dl>
-                        <input type="file"/>
-                    </dl>
+                    <form role="form" className="form-horizontal">
+                        <div className="form-group">
+                            <input type="file"/>
+                        </div>
+                    </form>
                 </li>))
             }
         </ol>;

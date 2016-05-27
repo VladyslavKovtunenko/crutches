@@ -6,21 +6,21 @@ export const Johny = {
     avatar: "http://famousoutfits.com/wp-content/uploads/2014/12/jason-statham.png",
     firstName: "John",
     lastName: "Smith",
-    userID: 4,
-    groupName: "PM3",
-    groupID: 2,
+    idUser: 4,
+    nameGroup: "PM3",
+    idGroup: 2,
     subjects: [
         {
-            subjectName: "Programing",
-            subjectID: 3
+            nameSubject: "Programing",
+            idSubject: 3
         },
         {
-            subjectName: "Object-oriented programming",
-            subjectID: 1
+            nameSubject: "Object-oriented programming",
+            idSubject: 1
         },
         {
-            subjectName: "Numerical analysis",
-            subjectID: 2
+            nameSubject: "Numerical analysis",
+            idSubject: 2
         }
     ]
 };

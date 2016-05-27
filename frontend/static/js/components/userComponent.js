@@ -44,8 +44,8 @@ export class User extends React.Component{
         console.log(this.props);
 
         this.subjectList = {
-            userID: this.props.info.userID,
-            groupID: this.props.info.groupID,
+            idUser: this.props.info.idUser,
+            idGroup: this.props.info.idGroup,
             subjects: this.props.info.subjects
         }
     }
@@ -58,14 +58,14 @@ export class User extends React.Component{
                 </div>
                 <div className="col-md-6">
                     <h2>{this.state.name}</h2>
-                    <p className="lead">{this.props.info.groupName}</p>
+                    <p className="lead">{this.props.info.nameGroup}</p>
                 </div>
                 <div className="col-md-12">
-                <ul className="list-unstyled">
-                    <h3>Subjects:</h3>
-                    <SubjectList info = {this.subjectList} />
-                </ul>
-                    </div>
+                    <ul className="list-unstyled">
+                        <h3>Subjects:</h3>
+                        <SubjectList info = {this.subjectList} />
+                    </ul>
+                </div>
             </div>
         );
     }

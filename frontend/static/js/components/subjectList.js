@@ -14,8 +14,8 @@ export class SubjectList extends React.Component{
                 {this.props.info.subjects.map((subject) => (
                     <Subject
                         subject = {subject}
-                        groupID = {this.props.info.groupID}
-                        userID = {this.props.info.userID}
+                        idGroup = {this.props.info.idGroup}
+                        idUser = {this.props.info.idUser}
                     />
                 ))
                 }

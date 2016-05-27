@@ -16,7 +16,7 @@ export class Subject extends React.Component{
 
     showTasks(){
         if (!this.isShowing) {
-            const url = '/' + this.props.userID + '/' + this.props.groupID + '/' + this.props.subject.subjectID;
+            const url = '/' + this.props.idUser + '/' + this.props.idGroup + '/' + this.props.subject.idSubject;
             const domain = 'http://localhost:3000';
             console.log(domain + url);
             /*$.ajax({
@@ -103,10 +103,10 @@ export class Subject extends React.Component{
                     isDone: false
                 }
             ];
-            ReactDOM.render(<Tasks tasks={tasks}/>, document.getElementById(this.props.subject.subjectName));
+            ReactDOM.render(<Tasks tasks={tasks}/>, document.getElementById(this.props.subject.nameSubject));
             this.isShowing = true;
         } else {
-            ReactDOM.render(<ClearTasks/>, document.getElementById(this.props.subject.subjectName));
+            ReactDOM.render(<ClearTasks/>, document.getElementById(this.props.subject.nameSubject));
             this.isShowing = false;
         }
     }
@@ -114,8 +114,8 @@ export class Subject extends React.Component{
     render(){
         return (
             <li onClick = {this.showTasks}>
-                <h4>{this.props.subject.subjectName}</h4>
-                <div id={this.props.subject.subjectName}></div>
+                <h4>{this.props.subject.nameSubject}</h4>
+                <div id={this.props.subject.nameSubject}></div>
             </li>
         )
     }
